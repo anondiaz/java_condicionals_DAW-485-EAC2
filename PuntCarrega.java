@@ -79,14 +79,36 @@ public class PuntCarrega {
         this.estat = estat;
     }
 
-    // TODO
-    informacioConnector()
-    // TODO
-    informacioEstat()
     // mètodes instància
     // obté la distància entre dos punts de càrrega
     public double distancia(PuntCarrega pc) {
         return this.ubicacio.distancia(pc.getUbicacio());
+    }
+    // TODO
+    public String informacioConnector() {
+        switch (this.connector) {
+            case TYPE2:
+                return "TYPE2";            
+            case CCS:
+                return "CCS";            
+            case CHADEMO:
+                return "CHADEMO";            
+            default:
+                return "Desconegut";
+        }
+    }
+    // TODO
+    public String informacioEstat() {
+        switch (this.estat) {
+            case DISPONIBLE:
+                return "DISPONIBLE";            
+            case OCUPAT:
+                return "OCUPAT";            
+            case AVARIAT:
+                return "AVARIAT";            
+            default:
+                return "Desconegut";
+        }
     }
 
     // mètodes estàtics
@@ -100,8 +122,8 @@ public class PuntCarrega {
     @Override
     public String toString() {
         return "{Identificador: " + this.identificador + ", Ubicació: " + this.ubicacio.toString()
-                + ", Potencia: " + this.potencia + " kW, Connector: " + this.connector
-                + ", Estat: " + this.estat + "}";
+                + ", Potència: " + this.potencia + " kW, Connector: " + informacioConnector()
+                + ", Estat: " + informacioEstat() + "}";
     }
 
 }

@@ -23,16 +23,18 @@ public class Vehicle {
     private int percentatge;
     private int autonomia;
     private int estat;
+    private Coordenades ubicacio;
 
     // Constructors
 
-    Vehicle(String matricula, String marca, String model, int autonomia) {
+    Vehicle(String matricula, String marca, String model, int autonomia, Coordenades ubicacio) {
         this.matricula = matricula;
         this.marca = marca;
         this.model = model;
         this.percentatge = 100;
         this.autonomia = autonomia;
         this.estat = ATURAT;
+        this.ubicacio = new Coordenades(ubicacio.getLatitud(), ubicacio.getLongitud());
         numVehiclesGestionats++;
     }
 
@@ -61,6 +63,10 @@ public class Vehicle {
     public int getEstat() {
         return this.estat;
     }
+    
+    public Coordenades getUbicacio() {
+        return this.ubicacio;
+    }
 
     public void setMatricula(String matricula) {
         this.matricula = matricula;
@@ -86,6 +92,10 @@ public class Vehicle {
         this.estat = estat;
     }
 
+    public void setUbicacio(Coordenades ubicacio) {
+        this.ubicacio = new Coordenades(ubicacio.getLatitud(), ubicacio.getLongitud());
+    }
+
     // mètodes instància
 
     public void engegar() {
@@ -102,7 +112,19 @@ public class Vehicle {
 
     // mètodes estàtics
     // TODO
-    informacioEstat()
+/*     public String informacioEstat() {
+        switch (this.estat) {
+            case DISPONIBLE:
+                return "DISPONIBLE";            
+            case OCUPAT:
+                return "OCUPAT";            
+            case AVARIAT:
+                return "AVARIAT";            
+            default:
+                return "Desconegut";
+        }
+    } */
+
     public static int getNumVehiclesGestionats() {
         return numVehiclesGestionats;
     }
