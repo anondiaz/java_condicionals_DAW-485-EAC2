@@ -112,18 +112,18 @@ public class Vehicle {
 
     // mètodes estàtics
     // TODO
-/*     public String informacioEstat() {
+    public String informacioEstat() {
         switch (this.estat) {
-            case DISPONIBLE:
-                return "DISPONIBLE";            
-            case OCUPAT:
-                return "OCUPAT";            
-            case AVARIAT:
-                return "AVARIAT";            
+            case ATURAT:
+                return "ATURAT";            
+            case EN_MOVIMENT:
+                return "EN_MOVIMENT";            
+            case EN_CARREGA:
+                return "EN_CARREGA";            
             default:
                 return "Desconegut";
         }
-    } */
+    }
 
     public static int getNumVehiclesGestionats() {
         return numVehiclesGestionats;
@@ -134,7 +134,7 @@ public class Vehicle {
     @Override
     public String toString() {
         return "{Matrícula: " + this.matricula + ", Marca: " + this.marca
-                + ", Model: " + this.model + ", Percentatge Bateria: " + this.percentatge
-                + "%, Autonomia: " + this.autonomia + " km, Estat: " + this.estat + "}";
+                + ", Model: " + this.model + ", Percentatge bateria: " + this.percentatge
+                + "%, Autonomia: " + this.autonomia + " km, Estat: " + informacioEstat() + ", Ubicació: " + this.ubicacio.toString() + "}";
     }
 }
